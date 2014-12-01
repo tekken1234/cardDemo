@@ -52,7 +52,7 @@
 }
 
 // #define MISMATCH_PENALTY 2 or ...
-static const int MISMATCH_PENALTY = 2;
+static const int MISMATCH_PENALTY = 3;
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 -(void)chooseCardAtIndex:(NSUInteger)index {
