@@ -12,10 +12,10 @@
 @interface CardMatchingGame : NSObject
 
 // designated initializer
--(instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
+- (instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck;
 
--(void)chooseCardAtIndex:(NSUInteger)index;
--(Card *)cardAtIndex:(NSUInteger)index;
+- (void)chooseCardAtIndex:(NSUInteger)index;
+- (Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
 

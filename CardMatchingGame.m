@@ -17,7 +17,7 @@
 
 @implementation CardMatchingGame
 
--(NSMutableArray *)cards {
+- (NSMutableArray *)cards {
     
     if (!_cards) _cards = [[NSMutableArray alloc]init];
     return _cards;
@@ -27,7 +27,7 @@
                        usingDeck:(Deck *)deck {
     
     self = [super init];
-    
+    // or if (card)
     if (self) {
         for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
@@ -52,9 +52,9 @@
 }
 
 // #define MISMATCH_PENALTY 2 or ...
-static const int MISMATCH_PENALTY = 3;
-static const int MATCH_BONUS = 5;
-static const int COST_TO_CHOOSE = 2;
+static const int MISMATCH_PENALTY = 2;
+static const int MATCH_BONUS = 4;
+static const int COST_TO_CHOOSE = 1;
 -(void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
@@ -69,8 +69,8 @@ static const int COST_TO_CHOOSE = 2;
                     int matchScore = [card match:@[otherCard]];
                     if (matchScore) {
                         self.score += matchScore * MATCH_BONUS;
-                        *card.matched = YES;
-                        *otherCard.matched = YES;
+                        card.matched = YES;
+                        otherCard.matched = YES;
                     } else {
                         self.score -= MISMATCH_PENALTY;
                         otherCard.chosen = NO;
@@ -80,7 +80,7 @@ static const int COST_TO_CHOOSE = 2;
                 
             }
             self.score -= COST_TO_CHOOSE;
-            *card.chosen = YES;
+            card.chosen = YES;
         }
     }
     

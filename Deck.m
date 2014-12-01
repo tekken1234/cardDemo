@@ -16,7 +16,7 @@
 
 @implementation Deck
 
--(NSMutableArray *)cards {
+- (NSMutableArray *)cards {
     
     // _cards == nil another way round
     if (!_cards) _cards = [[NSMutableArray alloc]init];
@@ -24,7 +24,7 @@
 }
 
 
--(void)addCard:(Card *)card atTop:(BOOL)atTop
+- (void)addCard:(Card *)card atTop:(BOOL)atTop
 {
     if (atTop) {
         [self.cards insertObject:card atIndex:0];
@@ -34,7 +34,7 @@
 }
 
 
--(void)addCard:(Card *)card;
+- (void)addCard:(Card *)card;
 {
     [self addCard:card atTop:NO];
 }
